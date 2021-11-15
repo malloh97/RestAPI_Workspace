@@ -7,11 +7,6 @@ public class API_Test {
 		
 		RestAssured.baseURI="";
 		
-		System.out.println("Hi");
-		System.out.println("Hi");
-		System.out.println("Hi");
-		System.out.println("Hi");
-		System.out.println("Hi");
 		
 		
 		
