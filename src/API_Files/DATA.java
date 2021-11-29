@@ -63,5 +63,31 @@ public class DATA {
 				"}\r\n" + 
 				""; 
 	}
+	
+	public static String NewCustomer(String Name, String Age)
+	{
+		return "{\r\n" + 
+				"    \"name\": \""+Name+"\",\r\n" + 
+				"    \"age\": \""+Age+"\",\r\n" + 
+				"    \"Job\": \"Automation Test Engineer\",\r\n" + 
+				"    \"Experience\": \"Two year\",\r\n" + 
+				"    \"Location\": \"Jordan\"\r\n" + 
+				"  }" ; 
+	}
+	
+	
+	public static String UpdateAddedCustomer(String Name, String Age)
+	{
+		return "{\r\n" + 
+				"    \"name\": \""+Name+"\",\r\n" + 
+				"    \"age\": \""+Age+"\",\r\n" + 
+				"    \"Job\": \"Automation Test Engineer\",\r\n" + 
+				"    \"Experience\": \"Two year\",\r\n" + 
+				"    \"Location\": \"Jordan\"\r\n" + 
+				"  }" ; 
+	}
+	
+	
+	
 
 }
