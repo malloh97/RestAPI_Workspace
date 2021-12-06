@@ -89,5 +89,49 @@ public class DATA {
 	
 	
 	
+	
+	
+	public static String Update_User()
+	{
+		return "{\r\n" + 
+				"    \"id\": 1,\r\n" + 
+				"    \"name\": \"Ahmad Malloh\",\r\n" + 
+				"    \"username\": \"malloh\",\r\n" + 
+				"    \"email\": \"malloh@yopmail.com\",\r\n" + 
+				"    \"address\": {\r\n" + 
+				"      \"street\": \"Amman\",\r\n" + 
+				"      \"suite\": \"Khalda\",\r\n" + 
+				"      \"city\": \"Amman\",\r\n" + 
+				"      \"zipcode\": \"90001\",\r\n" + 
+				"      \"geo\": {\r\n" + 
+				"        \"lat\": \"-37.3159\",\r\n" + 
+				"        \"lng\": \"81.1496\"\r\n" + 
+				"      }\r\n" + 
+				"    },\r\n" + 
+				"    \"phone\": \"12345681220\",\r\n" + 
+				"    \"website\": \"APITest.org\",\r\n" + 
+				"    \"company\": {\r\n" + 
+				"      \"name\": \"API Company\",\r\n" + 
+				"      \"catchPhrase\": \"Multi-layered client-server neural-net\",\r\n" + 
+				"      \"bs\": \"harness real-time e-markets\"\r\n" + 
+				"    }\r\n" + 
+				"  }" ; 
+	}
 
+	
+	
+	
+	
+	public static String CreateUser_API()
+	{
+		return "{\r\n" + 
+				"    \"name\": \"Khaled\",\r\n" + 
+				"    \"job\": \"Automation Software Engineer\"\r\n" + 
+				"}" ; 
+	}
+	
+	
+	
+	
+	
 }
