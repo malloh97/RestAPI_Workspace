@@ -130,8 +130,31 @@ public class DATA {
 				"}" ; 
 	}
 	
+	public static String Account_URL()
+	{
+		return "https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email&auth_url=https://accounts.google.com/o/oauth2/v2/auth&client_id=692183103107-p0m7ent2hk7suguv4vq22hjcfhcr43pj.apps.googleusercontent.com&response_type=code&redirect_uri=https://rahulshettyacademy.com/getCourse.php";
+	}
+	
+	public static String Get_Code()
+	{
+		return "4%2F0AX4XfWgol3pC6hazO_PIqrWJFg99kB94uRWiJwTRW8kGsu5KKmWz_4lKdg2Va_I5NWGDXA";
+	}
 	
 	
+	public static String Get_client_id()
+	{
+		return "692183103107-p0m7ent2hk7suguv4vq22hjcfhcr43pj.apps.googleusercontent.com";
+	}
 	
 	
+	public static String Get_client_secret()
+	{
+		return "erZOWM9g3UtwNRj340YYaK_W";
+	}
+	
+	
+	public static String Get_redirect_uri()
+	{
+		return "https://rahulshettyacademy.com/getCourse.php";
+	}
 }

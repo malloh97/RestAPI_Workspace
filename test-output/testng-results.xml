@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="3" passed="2">
+<testng-results skipped="0" failed="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5318" started-at="2021-12-06T19:25:58Z" finished-at="2021-12-06T19:26:03Z">
+  <suite name="Default suite" duration-ms="4224" started-at="2021-12-18T20:17:40Z" finished-at="2021-12-18T20:17:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5318" started-at="2021-12-06T19:25:58Z" finished-at="2021-12-06T19:26:03Z">
-      <class name="MorePracticeAPI">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:MorePracticeAPI@546a03af]" name="beforeTest" is-config="true" duration-ms="617" started-at="2021-12-06T21:25:58Z" finished-at="2021-12-06T21:25:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Get_AllData()[pri:1, instance:MorePracticeAPI@546a03af]" name="Get_AllData" duration-ms="2741" started-at="2021-12-06T21:25:58Z" finished-at="2021-12-06T21:26:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Get_AllData -->
-        <test-method status="PASS" signature="Create_User()[pri:2, instance:MorePracticeAPI@546a03af]" name="Create_User" duration-ms="1459" started-at="2021-12-06T21:26:01Z" finished-at="2021-12-06T21:26:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Create_User -->
-        <test-method status="FAIL" signature="Get_AddedUser()[pri:3, instance:MorePracticeAPI@546a03af]" name="Get_AddedUser" duration-ms="479" started-at="2021-12-06T21:26:03Z" finished-at="2021-12-06T21:26:03Z">
+    <test name="Default test" duration-ms="4224" started-at="2021-12-18T20:17:40Z" finished-at="2021-12-18T20:17:45Z">
+      <class name="OAuth_Test">
+        <test-method status="FAIL" signature="Get_Token()[pri:2, instance:OAuth_Test@4157f54e]" name="Get_Token" duration-ms="3319" started-at="2021-12-18T22:17:40Z" finished-at="2021-12-18T22:17:44Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[1 expectation failed.
-Expected status code <200> but was <404>.
+Expected status code <200> but was <400>.
 ]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: 1 expectation failed.
-Expected status code <200> but was <404>.
+Expected status code <200> but was <400>.
 
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -42,6 +30,9 @@ Expected status code <200> but was <404>.
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
 	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -50,9 +41,14 @@ Expected status code <200> but was <404>.
 	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
 	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:193)
 	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:61)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:126)
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:134)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
 	at io.restassured.internal.ValidatableResponseImpl.super$2$statusCode(ValidatableResponseImpl.groovy)
@@ -66,7 +62,7 @@ Expected status code <200> but was <404>.
 	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
 	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:142)
 	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy)
-	at MorePracticeAPI.Get_AddedUser(MorePracticeAPI.java:55)
+	at OAuth_Test.Get_Token(OAuth_Test.java:47)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -96,8 +92,12 @@ Expected status code <200> but was <404>.
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Get_AddedUser -->
-      </class> <!-- MorePracticeAPI -->
+        </test-method> <!-- Get_Token -->
+        <test-method status="PASS" signature="Get_Courses()[pri:3, instance:OAuth_Test@4157f54e]" name="Get_Courses" duration-ms="864" started-at="2021-12-18T22:17:44Z" finished-at="2021-12-18T22:17:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Get_Courses -->
+      </class> <!-- OAuth_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
