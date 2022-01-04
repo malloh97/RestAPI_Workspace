@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.*;
 
 public class OAuth_Test {
 	
-	static String Code, Token; 
+	public static String Code, Token; 
 	
 	@Test(priority=1, enabled = false)
 	public void GetTheCode()
@@ -33,23 +33,23 @@ public class OAuth_Test {
 		Code = driver.getCurrentUrl();
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2, enabled = false)
 	public void Get_Token()
 	{
-		RestAssured.baseURI = "https://www.googleapis.com"; 
+		RestAssured.baseURI = "https://www.googleapis.com/oauth2/v4/token"; 
 		
-		String Response = given().queryParam("code", "4%2F0AX4XfWiKW-1jhhXFqxbqMaixid1EiDy0K2E0QfsxZeAw0pB5Ng7ZilUF1OE7VMCGWqO_2Q")
+		String Response = given()
+		.queryParam("code", DATA.Get_Code())
 		.queryParam("client_id", DATA.Get_client_id())
 		.queryParam("client_secret", DATA.Get_client_secret())
 		.queryParam("redirect_uri", DATA.Get_redirect_uri())
 		.queryParam("grant_type", "authorization_code")
-		.when().post("/oauth2/v4/token")	
-		.then().statusCode(200).extract().response().asString();
+		.when().post()	
+		.then().extract().response().asString();
 		
 		JsonPath JS = new JsonPath(Response);
 		Token = JS.getString("access_token");
 		
-		System.out.println();
 	}
 	
 	@Test(priority=3)
@@ -57,8 +57,8 @@ public class OAuth_Test {
 	{
 		RestAssured.baseURI = "https://rahulshettyacademy.com/getCourse.php"; 
 		
-		String Response = given().queryParam("access_token", Token)
-		.when().get("/getCourse.php")
+		String Response = given().queryParam("access_token", "ya29.a0ARrdaM8f8EwRPL7JPj9egDJiQtGZqp_q6aIO9lWIQWAVXcS4MKsrowVZ41AWXXFIjuo46aGIPkJm1tOJBrNWGruEqYB6PNJUl3pyyeiCzhvSLqRRaXwdBdoLAVFElG9lozLqdaXF6AJqRAVmuUs_e-8u1-d2aA")
+		.when().get()
 		.then().statusCode(200).extract().response().asString();
 		
 		System.out.println(Response);

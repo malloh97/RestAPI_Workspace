@@ -6,13 +6,4 @@
       <class name="OAuth_Test"/>
     </classes>
   </test> <!-- Default test -->
-  <test name="Default test(failed)">
-    <classes>
-      <class name="OAuth_Test">
-        <methods>
-          <include name="Get_Token"/>
-        </methods>
-      </class> <!-- OAuth_Test -->
-    </classes>
-  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
