@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5440" started-at="2022-01-04T19:13:36Z" finished-at="2022-01-04T19:13:41Z">
+  <suite name="Default suite" duration-ms="7342" started-at="2022-01-06T11:28:04Z" finished-at="2022-01-06T11:28:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5440" started-at="2022-01-04T19:13:36Z" finished-at="2022-01-04T19:13:41Z">
+    <test name="Default test" duration-ms="7342" started-at="2022-01-06T11:28:04Z" finished-at="2022-01-06T11:28:12Z">
       <class name="OAuth_Test">
-        <test-method status="PASS" signature="Get_Courses()[pri:3, instance:OAuth_Test@4157f54e]" name="Get_Courses" duration-ms="5406" started-at="2022-01-04T21:13:36Z" finished-at="2022-01-04T21:13:41Z">
+        <test-method status="PASS" signature="Get_Token()[pri:2, instance:OAuth_Test@4157f54e]" name="Get_Token" duration-ms="7309" started-at="2022-01-06T13:28:04Z" finished-at="2022-01-06T13:28:12Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Get_Courses -->
+        </test-method> <!-- Get_Token -->
       </class> <!-- OAuth_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

@@ -1,28 +1,30 @@
 package POJO_Classes;
 
+import java.util.List;
+
 public class Courses {
 	
-	private webAutomation webAutomation;
-	private Api api;
-	private Mobile mobile;
+	private List<webAutomation> webAutomation;
+	private List<Api> api;
+	private List<Mobile> mobile;
 	
 	
-	public POJO_Classes.webAutomation getWebAutomation() {
+	public List<POJO_Classes.webAutomation> getWebAutomation() {
 		return webAutomation;
 	}
-	public void setWebAutomation(POJO_Classes.webAutomation webAutomation) {
+	public void setWebAutomation(List<POJO_Classes.webAutomation> webAutomation) {
 		this.webAutomation = webAutomation;
 	}
-	public Api getApi() {
+	public List<Api> getApi() {
 		return api;
 	}
-	public void setApi(Api api) {
+	public void setApi(List<Api> api) {
 		this.api = api;
 	}
-	public Mobile getMobile() {
+	public List<Mobile> getMobile() {
 		return mobile;
 	}
-	public void setMobile(Mobile mobile) {
+	public void setMobile(List<Mobile> mobile) {
 		this.mobile = mobile;
 	}
 	

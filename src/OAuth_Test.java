@@ -4,15 +4,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import API_Files.DATA;
+import POJO_Classes.Api;
+import POJO_Classes.GetCourses;
+import POJO_Classes.webAutomation;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.*;
 
+import java.util.List;
+
 public class OAuth_Test {
 	
-	public static String Code, Token; 
+	public static String Code; 
 	
 	@Test(priority=1, enabled = false)
 	public void GetTheCode()
@@ -33,37 +38,50 @@ public class OAuth_Test {
 		Code = driver.getCurrentUrl();
 	}
 	
-	@Test(priority=2, enabled = false)
+	@Test(priority=2)
 	public void Get_Token()
 	{
-		RestAssured.baseURI = "https://www.googleapis.com/oauth2/v4/token"; 
+		//RestAssured.baseURI = "https://www.googleapis.com/oauth2/v4/token"; 
 		
-		String Response = given()
-		.queryParam("code", DATA.Get_Code())
-		.queryParam("client_id", DATA.Get_client_id())
-		.queryParam("client_secret", DATA.Get_client_secret())
-		.queryParam("redirect_uri", DATA.Get_redirect_uri())
-		.queryParam("grant_type", "authorization_code")
-		.when().post()	
-		.then().extract().response().asString();
+		String accessTokenResponse=	given().urlEncodingEnabled(false)
+			.queryParams("code",DATA.Get_Code())
+			.queryParams("client_id",DATA.Get_client_id())
+			.queryParams("client_secret",DATA.Get_client_secret())
+			.queryParams("redirect_uri",DATA.Get_redirect_uri())
+			.queryParams("grant_type","authorization_code")
+			.when()
+			.post("https://www.googleapis.com/oauth2/v4/token").asString();
 		
-		JsonPath JS = new JsonPath(Response);
-		Token = JS.getString("access_token");
+			JsonPath js=new JsonPath(accessTokenResponse);
+			String accessToken=js.getString("access_token");
 		
-	}
 	
-	@Test(priority=3)
-	public void Get_Courses()
-	{
-		RestAssured.baseURI = "https://rahulshettyacademy.com/getCourse.php"; 
+			System.out.println(accessToken);
 		
-		String Response = given().queryParam("access_token", "ya29.a0ARrdaM8f8EwRPL7JPj9egDJiQtGZqp_q6aIO9lWIQWAVXcS4MKsrowVZ41AWXXFIjuo46aGIPkJm1tOJBrNWGruEqYB6PNJUl3pyyeiCzhvSLqRRaXwdBdoLAVFElG9lozLqdaXF6AJqRAVmuUs_e-8u1-d2aA")
-		.when().get()
-		.then().statusCode(200).extract().response().asString();
+	     	GetCourses GC = given().queryParam("access_token", accessToken)
+		   .expect().defaultParser(Parser.JSON)
+		   .when().get("https://rahulshettyacademy.com/getCourse.php").as(GetCourses.class);
 		
-		System.out.println(Response);
 		
-	}
+		// print the price of SoapUI Webservices testing Course
+		List<Api> apiCourses=GC.getCourses().getApi();
+		for(int i=0;i<apiCourses.size();i++)
+		{
+			if(apiCourses.get(i).getCourseTitle().equalsIgnoreCase("SoapUI Webservices testing"))
+					{
+				System.out.println(apiCourses.get(i).getPrice());
+					}
+		}
+		
+		
+		// print the Courses in the webAutomation
+		List<webAutomation> webCourses = GC.getCourses().getWebAutomation();
+		
+		for (int i=0; i< webCourses.size(); i++)
+		{
+			System.out.println(webCourses.get(i).getCourseTitle());
+		}
+		
 	
-
+	}
 }
