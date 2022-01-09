@@ -59,7 +59,7 @@ public class OAuth_Test {
 			System.out.println(accessToken);
 		
 	     	GetCourses GC = given().queryParam("access_token", accessToken)
-		   .expect().defaultParser(Parser.JSON)
+		   .expect().defaultParser(Parser.JSON)   
 		   .when().get("https://rahulshettyacademy.com/getCourse.php").as(GetCourses.class);
 		
 		
