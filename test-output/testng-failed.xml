@@ -3,16 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="Add_Place.API_Add"/>
+      <class name="Google_Maps_API.Add_Place"/>
     </classes>
   </test> <!-- Default test -->
-  <test name="Default test(failed)">
-    <classes>
-      <class name="Add_Place.API_Add">
-        <methods>
-          <include name="Add_Place"/>
-        </methods>
-      </class> <!-- Add_Place.API_Add -->
-    </classes>
-  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

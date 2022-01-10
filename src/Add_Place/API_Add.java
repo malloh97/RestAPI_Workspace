@@ -3,7 +3,9 @@ package Add_Place;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
 
@@ -13,6 +15,7 @@ import java.util.List;
 public class API_Add {
 	
 	POJO_Body body = new POJO_Body();
+	Get_Responce Res = new Get_Responce();
 	
 	@Test
 	public void Add_Place()
@@ -33,20 +36,12 @@ public class API_Add {
 		loc.setLat(-38.383494);
 		loc.setLng(38.383494);
 		
-		
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
-		String Response = given().queryParam("key", "qaclick123")
-		.body(body)
-		.when().post("/maps/api/place/add/json")
-		.then().log().all().assertThat().statusCode(200).extract().response().asString(); 
+		Get_Responce Response = given().queryParam("key", "qaclick123").header("Content-Type","application/json").urlEncodingEnabled(false)
+		.body(body).expect().defaultParser(Parser.JSON)
+		.when().post("/maps/api/place/add/json").as(Get_Responce.class);
 		
-		JsonPath JS = new JsonPath(Response);
-		
-		System.out.println(JS.getString("place_id"));
-		
-		
-		
-		System.out.println(Response);
+		System.out.println(Response.getPlace_id());
 	}
 	
 
